@@ -16,7 +16,7 @@ class CreateUserCommandTest extends TestCase {
     protected $myCommand;
 
     protected $myConfig;
-
+   
 
     /**
      * Sets up the fixture, for example, opens a network connection.
