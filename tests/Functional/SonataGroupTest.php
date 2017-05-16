@@ -175,15 +175,17 @@ class SonataGroupTest extends TestCase
      */
     public function testAddUser()
     {               
-        $user = new AdvancedUserInterface;
+        $toto = 'weekend';
+        $user = $this->getMockForAbstractClass(AdvancedUserInterface::class);
+        //var_dump($toto);
         
-        $this->object->addUser($user);
-        //var_dump($user);
+        //$this->object->addUser($user);
+        //$get = $this->object->getUsers();
+        //it's the same thing 
+        $get = $this->object->addUser($user)->getUsers();
+        //var_dump($get);
+        $this->assertNotNull($get);
         
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
     }
 
     /**
@@ -192,10 +194,19 @@ class SonataGroupTest extends TestCase
      */
     public function testRemoveUser()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $toto = 'lundi matin';
+        $user = $this->getMockForAbstractClass(AdvancedUserInterface::class);
+        //var_dump($toto);
+        
+        $this->object->addUser($user);
+        $get = $this->object->getUsers();
+        //var_dump($get);
+        $get =  $this->object->removeUser($user);
+        $get = $this->object->getUsers();
+        //var_dump($get);
+        
+        $this->assertEquals(0, $get->count());
+        
     }
 
     /**
